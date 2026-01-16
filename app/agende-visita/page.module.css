@@ -1,0 +1,157 @@
+.page {
+  min-height: 100vh;
+  background: var(--color-gray-50);
+  padding: 3rem 0;
+}
+
+.title {
+  font-size: 2.5rem;
+  font-weight: bold;
+  text-align: center;
+  margin-bottom: 1rem;
+  color: var(--color-gray-900);
+}
+
+.subtitle {
+  text-align: center;
+  color: var(--color-gray-600);
+  margin-bottom: 3rem;
+}
+
+.form {
+  background: var(--color-white);
+  border-radius: 0.5rem;
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+  padding: 2rem;
+  max-width: 48rem;
+  margin: 0 auto;
+}
+
+.formElement {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.row {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.5rem;
+}
+
+.group {
+  display: flex;
+  flex-direction: column;
+}
+
+.group label {
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: var(--color-gray-700);
+  margin-bottom: 0.5rem;
+}
+
+.group input,
+.group select,
+.group textarea {
+  width: 100%;
+  padding: 0.75rem 1rem;
+  border: 1px solid var(--color-gray-300);
+  border-radius: 0.5rem;
+  font-size: 1rem;
+  transition: border-color 0.2s, box-shadow 0.2s;
+  font-family: inherit;
+  box-sizing: border-box;
+}
+
+.group input:focus,
+.group select:focus,
+.group textarea:focus {
+  outline: none;
+  border-color: var(--color-secondary);
+  box-shadow: 0 0 0 3px rgba(212, 175, 55, 0.1);
+}
+
+.group textarea {
+  resize: vertical;
+}
+
+.btn {
+  width: 100%;
+  background: var(--color-secondary);
+  color: var(--color-white);
+  font-weight: bold;
+  padding: 1rem 2rem;
+  border: none;
+  border-radius: 0.5rem;
+  cursor: pointer;
+  transition: all 0.3s;
+  font-size: 1rem;
+}
+
+.btn:hover {
+  background: var(--color-accent);
+  transform: scale(1.02);
+}
+
+.success {
+  text-align: center;
+  padding: 2rem;
+}
+
+.icon {
+  color: var(--color-green-500);
+  font-size: 3rem;
+  margin-bottom: 1rem;
+}
+
+.success h2 {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: var(--color-gray-900);
+  margin-bottom: 0.5rem;
+}
+
+.success p {
+  color: var(--color-gray-600);
+}
+
+.contact {
+  text-align: center;
+  margin-top: 2rem;
+}
+
+.contact p {
+  color: var(--color-gray-600);
+  margin-bottom: 1rem;
+}
+
+.whatsapp {
+  display: inline-block;
+  background: var(--color-green-500);
+  color: var(--color-white);
+  font-weight: bold;
+  padding: 0.75rem 2rem;
+  border-radius: 0.5rem;
+  transition: all 0.3s;
+}
+
+.whatsapp:hover {
+  background: var(--color-green-600);
+  transform: scale(1.05);
+}
+
+@media (min-width: 640px) {
+  .row {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 640px) {
+  .title {
+    font-size: 2rem;
+  }
+  .form {
+    padding: 1.5rem;
+  }
+}
