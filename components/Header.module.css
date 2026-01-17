@@ -4,9 +4,9 @@
   left: 0;
   right: 0;
   width: 100%;
-  background: var(--color-primary);
+  background: linear-gradient(to bottom, var(--color-primary) 0%, rgba(26, 26, 26, 0.95) 40%, rgba(26, 26, 26, 0) 100%);
   color: var(--color-white);
-  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+  box-shadow: none;
   z-index: 50;
 }
 
@@ -28,8 +28,10 @@
 }
 
 .logoImage {
-  max-height: 50px;
-  object-fit: contain;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  object-fit: cover;
 }
 
 .nav {

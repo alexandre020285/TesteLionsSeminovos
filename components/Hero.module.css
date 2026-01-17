@@ -4,6 +4,7 @@
   min-height: 400px;
   height: 400px;
   overflow: hidden;
+  margin-top: 0;
 }
 
 .carousel {
