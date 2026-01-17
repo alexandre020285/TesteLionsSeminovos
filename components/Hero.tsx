@@ -54,31 +54,57 @@ export default function Hero() {
     return () => clearInterval(timer)
   }, [])
 
-  const proximoSlide = () => setSlideAtual((atual) => (atual + 1) % slides.length)
-  const slideAnterior = () => setSlideAtual((atual) => (atual - 1 + slides.length) % slides.length)
+  const proximoSlide = () => {
+    const proximo = (slideAtual + 1) % slides.length
+    setSlideAtual(proximo)
+  }
+
+  const slideAnterior = () => {
+    const anterior = slideAtual - 1
+    if (anterior < 0) {
+      setSlideAtual(slides.length - 1)
+    } else {
+      setSlideAtual(anterior)
+    }
+  }
+
+  const irParaSlide = (index: number) => {
+    setSlideAtual(index)
+  }
 
   return (
     <section className={styles.hero}>
       <div className={styles.carousel}>
-        {slides.map((slide, index) => (
-          <div key={slide.id} className={`${styles.slide} ${index === slideAtual ? styles.active : ''}`}>
-            <div className={styles.backgroundImage}>
-              <Image src={slide.image} alt={slide.title} fill className={styles.bgImage} priority={index === 0} sizes="100vw" quality={90} />
-              <div className={styles.overlay}></div>
-            </div>
-            <div className={styles.content}>
-              <div className="container">
-                <div className={styles.glassCard}>
-                  <h1 className={styles.title}>{slide.title}</h1>
-                  <p className={styles.subtitle}>{slide.subtitle}</p>
-                  <Link href={slide.buttonLink} className={styles.btnPrimary}>
-                    {slide.buttonText}
-                  </Link>
+        {slides.map((slide, index) => {
+          const estaAtivo = index === slideAtual
+          return (
+            <div key={slide.id} className={`${styles.slide} ${estaAtivo ? styles.active : ''}`}>
+              <div className={styles.backgroundImage}>
+                <Image 
+                  src={slide.image} 
+                  alt={slide.title} 
+                  fill 
+                  className={styles.bgImage} 
+                  priority={index === 0} 
+                  sizes="100vw" 
+                  quality={90} 
+                />
+                <div className={styles.overlay}></div>
+              </div>
+              <div className={styles.content}>
+                <div className="container">
+                  <div className={styles.glassCard}>
+                    <h1 className={styles.title}>{slide.title}</h1>
+                    <p className={styles.subtitle}>{slide.subtitle}</p>
+                    <Link href={slide.buttonLink} className={styles.btnPrimary}>
+                      {slide.buttonText}
+                    </Link>
+                  </div>
                 </div>
               </div>
             </div>
-          </div>
-        ))}
+          )
+        })}
       </div>
 
       <button className={styles.navButton} onClick={slideAnterior} aria-label="Slide anterior">
@@ -89,14 +115,17 @@ export default function Hero() {
       </button>
 
       <div className={styles.dots}>
-        {slides.map((_, index) => (
-          <button
-            key={index}
-            className={`${styles.dot} ${index === slideAtual ? styles.active : ''}`}
-            onClick={() => setSlideAtual(index)}
-            aria-label={`Ir para slide ${index + 1}`}
-          />
-        ))}
+        {slides.map((_, index) => {
+          const estaAtivo = index === slideAtual
+          return (
+            <button
+              key={index}
+              className={`${styles.dot} ${estaAtivo ? styles.active : ''}`}
+              onClick={() => irParaSlide(index)}
+              aria-label={`Ir para slide ${index + 1}`}
+            />
+          )
+        })}
       </div>
     </section>
   )
