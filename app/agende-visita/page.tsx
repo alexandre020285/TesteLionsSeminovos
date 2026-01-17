@@ -4,18 +4,28 @@ import { useState } from 'react'
 import styles from './page.module.css'
 
 export default function AgendeVisitaPage() {
-  const [form, setForm] = useState({ nome: '', telefone: '', email: '', veiculo: '', data: '', horario: '', mensagem: '' })
-  const [submitted, setSubmitted] = useState(false)
+  const [formulario, setFormulario] = useState({
+    nome: '',
+    telefone: '',
+    email: '',
+    veiculo: '',
+    data: '',
+    horario: '',
+    mensagem: '',
+  })
+  const [enviado, setEnviado] = useState(false)
 
+  // Atualiza os campos do formulário
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
-    setForm({ ...form, [e.target.name]: e.target.value })
+    setFormulario({ ...formulario, [e.target.name]: e.target.value })
   }
 
+  // Envia o formulário
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault()
-    console.log('Formulário enviado:', form)
-    setSubmitted(true)
-    setTimeout(() => setSubmitted(false), 5000)
+    console.log('Formulário enviado:', formulario)
+    setEnviado(true)
+    setTimeout(() => setEnviado(false), 5000)
   }
 
   return (
@@ -25,7 +35,7 @@ export default function AgendeVisitaPage() {
         <p className={styles.subtitle}>Preencha o formulário abaixo e entraremos em contato para agendar sua visita</p>
 
         <div className={styles.form}>
-          {submitted ? (
+          {enviado ? (
             <div className={styles.success}>
               <div className={styles.icon}>✓</div>
               <h2>Formulário Enviado com Sucesso!</h2>
@@ -35,21 +45,23 @@ export default function AgendeVisitaPage() {
             <form onSubmit={handleSubmit} className={styles.formElement}>
               <div className={styles.group}>
                 <label>Nome Completo *</label>
-                <input type="text" name="nome" required value={form.nome} onChange={handleChange} />
+                <input type="text" name="nome" required value={formulario.nome} onChange={handleChange} />
               </div>
+
               <div className={styles.row}>
                 <div className={styles.group}>
                   <label>Telefone *</label>
-                  <input type="tel" name="telefone" required value={form.telefone} onChange={handleChange} />
+                  <input type="tel" name="telefone" required value={formulario.telefone} onChange={handleChange} />
                 </div>
                 <div className={styles.group}>
                   <label>E-mail *</label>
-                  <input type="email" name="email" required value={form.email} onChange={handleChange} />
+                  <input type="email" name="email" required value={formulario.email} onChange={handleChange} />
                 </div>
               </div>
+
               <div className={styles.group}>
                 <label>Veículo de Interesse</label>
-                <select name="veiculo" value={form.veiculo} onChange={handleChange}>
+                <select name="veiculo" value={formulario.veiculo} onChange={handleChange}>
                   <option value="">Selecione um veículo</option>
                   <option value="Honda Civic">Honda Civic</option>
                   <option value="Toyota Corolla">Toyota Corolla</option>
@@ -57,14 +69,15 @@ export default function AgendeVisitaPage() {
                   <option value="Outro">Outro</option>
                 </select>
               </div>
+
               <div className={styles.row}>
                 <div className={styles.group}>
                   <label>Data Preferencial</label>
-                  <input type="date" name="data" value={form.data} onChange={handleChange} />
+                  <input type="date" name="data" value={formulario.data} onChange={handleChange} />
                 </div>
                 <div className={styles.group}>
                   <label>Horário Preferencial</label>
-                  <select name="horario" value={form.horario} onChange={handleChange}>
+                  <select name="horario" value={formulario.horario} onChange={handleChange}>
                     <option value="">Selecione um horário</option>
                     <option value="08:00 - 10:00">08:00 - 10:00</option>
                     <option value="10:00 - 12:00">10:00 - 12:00</option>
@@ -73,15 +86,18 @@ export default function AgendeVisitaPage() {
                   </select>
                 </div>
               </div>
+
               <div className={styles.group}>
                 <label>Mensagem</label>
-                <textarea name="mensagem" rows={4} value={form.mensagem} onChange={handleChange} placeholder="Deixe sua mensagem ou observações..." />
+                <textarea name="mensagem" rows={4} value={formulario.mensagem} onChange={handleChange} placeholder="Deixe sua mensagem ou observações..." />
               </div>
+
               <button type="submit" className={styles.btn}>Enviar Solicitação</button>
             </form>
           )}
         </div>
 
+        {/* Link alternativo para WhatsApp */}
         <div className={styles.contact}>
           <p>Ou entre em contato diretamente:</p>
           <a href="https://wa.me/5511999999999" target="_blank" rel="noopener noreferrer" className={styles.whatsapp}>

@@ -2,8 +2,11 @@
   background: var(--color-primary);
   color: var(--color-white);
   box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
-  position: sticky;
+  position: fixed;
   top: 0;
+  left: 0;
+  right: 0;
+  width: 100%;
   z-index: 50;
 }
 
@@ -46,23 +49,44 @@
   color: var(--color-secondary);
 }
 
-.socialBtn {
-  background: var(--color-secondary);
-  padding: 0.5rem 1rem;
-  border-radius: 0.5rem;
-  font-weight: 500;
-  transition: background 0.3s;
+.socialContainer {
   display: flex;
   align-items: center;
   gap: 0.5rem;
 }
 
-.socialBtn:hover {
-  background: var(--color-accent);
+.socialBtn {
+  background: transparent;
+  padding: 0.5rem;
+  border-radius: 0.5rem;
+  transition: all 0.3s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
-.icon {
-  font-size: 1.125rem;
+.socialBtn:hover {
+  transform: scale(1.1);
+}
+
+.iconInstagram {
+  font-size: 1.5rem;
+  color: #E4405F;
+  transition: all 0.3s;
+}
+
+.iconInstagram:hover {
+  color: #E1306C;
+}
+
+.iconFacebook {
+  font-size: 1.5rem;
+  color: #1877F2;
+  transition: all 0.3s;
+}
+
+.iconFacebook:hover {
+  color: #0d5db8;
 }
 
 .menuBtn {
@@ -92,20 +116,25 @@
 }
 
 .mobileSocialBtn {
-  background: var(--color-secondary);
+  background: transparent;
   padding: 0.75rem;
   border-radius: 0.5rem;
   text-align: center;
-  font-weight: 500;
-  transition: background 0.3s;
+  transition: all 0.3s;
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 0.5rem;
 }
 
 .mobileSocialBtn:hover {
-  background: var(--color-accent);
+  transform: scale(1.1);
+}
+
+.mobileNav .socialContainer {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding-top: 0.5rem;
 }
 
 @media (min-width: 768px) {

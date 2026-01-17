@@ -16,7 +16,9 @@ export default function VehicleCard({ vehicle }: { vehicle: Vehicle }) {
           <span>📅 {vehicle.year}</span>
           <span>🛣️ {vehicle.km}</span>
         </div>
-        <Link href={`/veiculo/${vehicle.id}`} className={styles.btn}>Ver Detalhes</Link>
+        <Link href={`/veiculo/${vehicle.id}`} className={styles.btn}>
+          Ver Detalhes
+        </Link>
       </div>
     </div>
   )

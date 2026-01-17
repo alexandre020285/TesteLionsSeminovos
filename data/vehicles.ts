@@ -1,3 +1,4 @@
+// Interface do veículo
 export interface Vehicle {
   id: number
   name: string
@@ -8,6 +9,7 @@ export interface Vehicle {
   brand?: string
 }
 
+// Lista completa de veículos
 export const vehicles: Vehicle[] = [
   { id: 1, name: 'Honda Civic 2020', price: 'R$ 95.000', image: '/images/carros/Honda Civic 2020.webp', year: '2020', km: '45.000 km', brand: 'Honda' },
   { id: 2, name: 'Toyota Corolla 2021', price: 'R$ 110.000', image: '/images/carros/Toyota Corolla 2021.jpg', year: '2021', km: '30.000 km', brand: 'Toyota' },
@@ -17,4 +19,5 @@ export const vehicles: Vehicle[] = [
   { id: 6, name: 'Fiat Argo 2022', price: 'R$ 68.000', image: '/images/carros/Fiat Argo 2022.jpg', year: '2022', km: '25.000 km', brand: 'Fiat' },
 ]
 
+// Veículos em destaque na página inicial (primeiros 3)
 export const featuredVehicles = vehicles.slice(0, 3)

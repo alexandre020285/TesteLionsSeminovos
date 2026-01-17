@@ -6,6 +6,7 @@ import { useState, useEffect } from 'react'
 import { FaChevronLeft, FaChevronRight } from 'react-icons/fa'
 import styles from './Hero.module.css'
 
+// Dados dos slides do carrossel
 const slides = [
   {
     id: 1,
@@ -42,46 +43,38 @@ const slides = [
 ]
 
 export default function Hero() {
-  const [currentSlide, setCurrentSlide] = useState(0)
+  const [slideAtual, setSlideAtual] = useState(0)
 
+  // Muda o slide automaticamente a cada 4 segundos (tempo uniforme)
   useEffect(() => {
     const timer = setInterval(() => {
-      setCurrentSlide((prev) => (prev + 1) % slides.length)
-    }, 5000)
-
+      setSlideAtual((atual) => {
+        const proximo = (atual + 1) % slides.length
+        return proximo
+      })
+    }, 4000) // Tempo fixo de 4 segundos para todos os slides
     return () => clearInterval(timer)
-  }, [])
+  }, []) // Loop infinito garantido pelo módulo
 
-  const nextSlide = () => {
-    setCurrentSlide((prev) => (prev + 1) % slides.length)
+  const proximoSlide = () => {
+    setSlideAtual((atual) => (atual + 1) % slides.length)
   }
 
-  const prevSlide = () => {
-    setCurrentSlide((prev) => (prev - 1 + slides.length) % slides.length)
-  }
-
-  const goToSlide = (index: number) => {
-    setCurrentSlide(index)
+  const slideAnterior = () => {
+    setSlideAtual((atual) => {
+      const anterior = atual - 1
+      return anterior < 0 ? slides.length - 1 : anterior
+    })
   }
 
   return (
     <section className={styles.hero}>
+      {/* Carrossel de imagens */}
       <div className={styles.carousel}>
         {slides.map((slide, index) => (
-          <div
-            key={slide.id}
-            className={`${styles.slide} ${index === currentSlide ? styles.active : ''}`}
-          >
+          <div key={slide.id} className={`${styles.slide} ${index === slideAtual ? styles.active : ''}`}>
             <div className={styles.backgroundImage}>
-              <Image
-                src={slide.image}
-                alt={slide.title}
-                fill
-                className={styles.bgImage}
-                priority={index === 0}
-                sizes="100vw"
-                quality={90}
-              />
+              <Image src={slide.image} alt={slide.title} fill className={styles.bgImage} priority={index === 0} sizes="100vw" quality={90} />
               <div className={styles.overlay}></div>
             </div>
             <div className={styles.content}>
@@ -89,11 +82,9 @@ export default function Hero() {
                 <div className={styles.glassCard}>
                   <h1 className={styles.title}>{slide.title}</h1>
                   <p className={styles.subtitle}>{slide.subtitle}</p>
-                  <div className={styles.buttons}>
-                    <Link href={slide.buttonLink} className={styles.btnPrimary}>
-                      {slide.buttonText}
-                    </Link>
-                  </div>
+                  <Link href={slide.buttonLink} className={styles.btnPrimary}>
+                    {slide.buttonText}
+                  </Link>
                 </div>
               </div>
             </div>
@@ -101,19 +92,21 @@ export default function Hero() {
         ))}
       </div>
 
-      <button className={styles.navButton} onClick={prevSlide} aria-label="Slide anterior">
+      {/* Botões de navegação */}
+      <button className={styles.navButton} onClick={slideAnterior} aria-label="Slide anterior">
         <FaChevronLeft />
       </button>
-      <button className={`${styles.navButton} ${styles.navButtonRight}`} onClick={nextSlide} aria-label="Próximo slide">
+      <button className={`${styles.navButton} ${styles.navButtonRight}`} onClick={proximoSlide} aria-label="Próximo slide">
         <FaChevronRight />
       </button>
 
+      {/* Indicadores de slide */}
       <div className={styles.dots}>
         {slides.map((_, index) => (
           <button
             key={index}
-            className={`${styles.dot} ${index === currentSlide ? styles.active : ''}`}
-            onClick={() => goToSlide(index)}
+            className={`${styles.dot} ${index === slideAtual ? styles.active : ''}`}
+            onClick={() => setSlideAtual(index)}
             aria-label={`Ir para slide ${index + 1}`}
           />
         ))}
