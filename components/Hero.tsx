@@ -6,7 +6,6 @@ import { useState, useEffect } from 'react'
 import { FaChevronLeft, FaChevronRight } from 'react-icons/fa'
 import styles from './Hero.module.css'
 
-// Dados dos slides do carrossel
 const slides = [
   {
     id: 1,
@@ -45,16 +44,15 @@ const slides = [
 export default function Hero() {
   const [slideAtual, setSlideAtual] = useState(0)
 
-  // Muda o slide automaticamente a cada 4 segundos (tempo uniforme)
   useEffect(() => {
     const timer = setInterval(() => {
       setSlideAtual((atual) => {
         const proximo = (atual + 1) % slides.length
         return proximo
       })
-    }, 4000) // Tempo fixo de 4 segundos para todos os slides
+    }, 4000)
     return () => clearInterval(timer)
-  }, []) // Loop infinito garantido pelo módulo
+  }, [])
 
   const proximoSlide = () => {
     setSlideAtual((atual) => (atual + 1) % slides.length)
@@ -69,7 +67,6 @@ export default function Hero() {
 
   return (
     <section className={styles.hero}>
-      {/* Carrossel de imagens */}
       <div className={styles.carousel}>
         {slides.map((slide, index) => (
           <div key={slide.id} className={`${styles.slide} ${index === slideAtual ? styles.active : ''}`}>
@@ -92,7 +89,6 @@ export default function Hero() {
         ))}
       </div>
 
-      {/* Botões de navegação */}
       <button className={styles.navButton} onClick={slideAnterior} aria-label="Slide anterior">
         <FaChevronLeft />
       </button>
@@ -100,7 +96,6 @@ export default function Hero() {
         <FaChevronRight />
       </button>
 
-      {/* Indicadores de slide */}
       <div className={styles.dots}>
         {slides.map((_, index) => (
           <button

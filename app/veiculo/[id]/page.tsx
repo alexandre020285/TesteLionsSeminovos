@@ -17,20 +17,17 @@ export default function VeiculoPage({ params }: { params: { id: string } }) {
   return (
     <div className={styles.page}>
       <div className="container">
-        {/* Botão voltar */}
         <button onClick={() => router.back()} className={styles.backButton}>
           ← Voltar
         </button>
 
         <div className={styles.content}>
-          {/* Imagem do veículo */}
           <div className={styles.imageSection}>
             <div className={styles.imageContainer}>
               <Image src={veiculo.image} alt={veiculo.name} fill className={styles.image} priority sizes="(max-width: 768px) 100vw, 50vw" />
             </div>
           </div>
 
-          {/* Detalhes do veículo */}
           <div className={styles.detailsSection}>
             <h1 className={styles.title}>{veiculo.name}</h1>
             <div className={styles.price}>{veiculo.price}</div>
@@ -52,7 +49,6 @@ export default function VeiculoPage({ params }: { params: { id: string } }) {
               )}
             </div>
 
-            {/* Botões de ação */}
             <div className={styles.actions}>
               <Link href="/agende-visita" className={styles.primaryButton}>
                 Agendar Visita

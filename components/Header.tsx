@@ -6,7 +6,6 @@ import { useState } from 'react'
 import { FaInstagram, FaFacebook } from 'react-icons/fa'
 import styles from './Header.module.css'
 
-// Links do menu de navegação
 const menuLinks = [
   { href: '/', label: 'Página Inicial' },
   { href: '/catalogo', label: 'Catálogo' },
@@ -20,12 +19,10 @@ export default function Header() {
     <header className={styles.header}>
       <div className="container">
         <div className={styles.content}>
-          {/* Logo */}
           <Link href="/" className={styles.logo}>
             <Image src="/images/logo/lions logo.jpg" alt="Lions Seminovos" width={150} height={50} className={styles.logoImage} priority />
           </Link>
 
-          {/* Menu desktop */}
           <nav className={styles.nav}>
             {menuLinks.map(({ href, label }) => (
               <Link key={href} href={href} className={styles.link}>
@@ -42,13 +39,11 @@ export default function Header() {
             </div>
           </nav>
 
-          {/* Botão menu mobile */}
           <button className={styles.menuBtn} onClick={() => setMenuAberto(!menuAberto)} aria-label="Menu">
             {menuAberto ? '✕' : '☰'}
           </button>
         </div>
 
-        {/* Menu mobile */}
         {menuAberto && (
           <nav className={styles.mobileNav}>
             {menuLinks.map(({ href, label }) => (

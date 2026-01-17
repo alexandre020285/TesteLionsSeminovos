@@ -7,10 +7,8 @@ import styles from './page.module.css'
 export default function Home() {
   return (
     <>
-      {/* Carrossel de banner */}
       <Hero />
 
-      {/* Seção de veículos em destaque */}
       <section className={styles.featuredSection}>
         <div className="container">
           <h2 className={styles.title}>Veículos em Destaque</h2>
@@ -24,7 +22,6 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Seção de call-to-action */}
       <section className={styles.ctaSection}>
         <div className="container">
           <h2 className={styles.title}>Encontre o Carro dos Seus Sonhos</h2>

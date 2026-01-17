@@ -2,7 +2,6 @@ import Link from 'next/link'
 import { FaInstagram, FaFacebook } from 'react-icons/fa'
 import styles from './Footer.module.css'
 
-// Links rápidos do footer
 const menuLinks = [
   { href: '/', label: 'Página Inicial' },
   { href: '/catalogo', label: 'Catálogo' },
@@ -14,13 +13,11 @@ export default function Footer() {
     <footer className={styles.footer}>
       <div className="container">
         <div className={styles.content}>
-          {/* Sobre a empresa */}
           <div>
             <h3 className={styles.title}>Lions Seminovos</h3>
             <p className={styles.text}>Seu parceiro de confiança na busca pelo carro perfeito.</p>
           </div>
 
-          {/* Links rápidos */}
           <div>
             <h3 className={styles.title}>Links Rápidos</h3>
             <ul className={styles.list}>
@@ -32,7 +29,6 @@ export default function Footer() {
             </ul>
           </div>
 
-          {/* Contato e redes sociais */}
           <div>
             <h3 className={styles.title}>Contato</h3>
             <ul className={styles.list}>
@@ -51,7 +47,6 @@ export default function Footer() {
           </div>
         </div>
 
-        {/* Rodapé inferior */}
         <div className={styles.bottom}>
           <p>&copy; {new Date().getFullYear()} Lions Seminovos. Todos os direitos reservados.</p>
         </div>

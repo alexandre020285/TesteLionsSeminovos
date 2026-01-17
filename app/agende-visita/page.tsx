@@ -15,12 +15,10 @@ export default function AgendeVisitaPage() {
   })
   const [enviado, setEnviado] = useState(false)
 
-  // Atualiza os campos do formulário
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
     setFormulario({ ...formulario, [e.target.name]: e.target.value })
   }
 
-  // Envia o formulário
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault()
     console.log('Formulário enviado:', formulario)
@@ -97,7 +95,6 @@ export default function AgendeVisitaPage() {
           )}
         </div>
 
-        {/* Link alternativo para WhatsApp */}
         <div className={styles.contact}>
           <p>Ou entre em contato diretamente:</p>
           <a href="https://wa.me/5511999999999" target="_blank" rel="noopener noreferrer" className={styles.whatsapp}>
