@@ -32,7 +32,7 @@ export default function Footer() {
           <div>
             <h3 className={styles.title}>Contato</h3>
             <ul className={styles.list}>
-              <li>📞 (11) 9999-9999</li>
+              <li>📞 (21) 0000-0000</li>
               <li>📧 contato@lionsseminovos.com.br</li>
               <li>📍 Rio de Janeiro, RJ</li>
             </ul>
@@ -48,7 +48,7 @@ export default function Footer() {
         </div>
 
         <div className={styles.bottom}>
-          <p>&copy; {new Date().getFullYear()} Lions Seminovos. Todos os direitos reservados.</p>
+          <p>&copy; 2026 Lions Seminovos. Todos os direitos reservados.</p>
         </div>
       </div>
     </footer>

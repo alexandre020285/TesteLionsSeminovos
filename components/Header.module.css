@@ -1,12 +1,12 @@
 .header {
-  background: var(--color-primary);
-  color: var(--color-white);
-  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
   position: fixed;
   top: 0;
   left: 0;
   right: 0;
   width: 100%;
+  background: var(--color-primary);
+  color: var(--color-white);
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
   z-index: 50;
 }
 
@@ -28,8 +28,6 @@
 }
 
 .logoImage {
-  height: auto;
-  width: auto;
   max-height: 50px;
   object-fit: contain;
 }
@@ -59,7 +57,7 @@
   background: transparent;
   padding: 0.5rem;
   border-radius: 0.5rem;
-  transition: all 0.3s;
+  transition: transform 0.3s;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -72,7 +70,7 @@
 .iconInstagram {
   font-size: 1.5rem;
   color: #E4405F;
-  transition: all 0.3s;
+  transition: color 0.3s;
 }
 
 .iconInstagram:hover {
@@ -82,7 +80,7 @@
 .iconFacebook {
   font-size: 1.5rem;
   color: #1877F2;
-  transition: all 0.3s;
+  transition: color 0.3s;
 }
 
 .iconFacebook:hover {
@@ -97,6 +95,23 @@
   font-size: 1.5rem;
   cursor: pointer;
   padding: 0.5rem;
+  transition: transform 0.3s ease;
+}
+
+.menuBtn:hover {
+  transform: scale(1.1);
+}
+
+.menuBtn:active {
+  transform: scale(0.95);
+}
+
+.menuBtn.active {
+  transform: rotate(90deg);
+}
+
+.menuBtn.active:hover {
+  transform: rotate(90deg) scale(1.1);
 }
 
 .mobileNav {
@@ -119,8 +134,7 @@
   background: transparent;
   padding: 0.75rem;
   border-radius: 0.5rem;
-  text-align: center;
-  transition: all 0.3s;
+  transition: transform 0.3s;
   display: flex;
   align-items: center;
   justify-content: center;

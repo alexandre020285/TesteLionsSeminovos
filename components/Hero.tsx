@@ -54,16 +54,8 @@ export default function Hero() {
     return () => clearInterval(timer)
   }, [])
 
-  const proximoSlide = () => {
-    setSlideAtual((atual) => (atual + 1) % slides.length)
-  }
-
-  const slideAnterior = () => {
-    setSlideAtual((atual) => {
-      const anterior = atual - 1
-      return anterior < 0 ? slides.length - 1 : anterior
-    })
-  }
+  const proximoSlide = () => setSlideAtual((atual) => (atual + 1) % slides.length)
+  const slideAnterior = () => setSlideAtual((atual) => (atual - 1 + slides.length) % slides.length)
 
   return (
     <section className={styles.hero}>

@@ -8,10 +8,9 @@
   --color-primary: #1a1a1a;
   --color-secondary: #d4af37;
   --color-accent: #c9a961;
-  --color-white: #ffffff;
+  --color-white: #fff;
   --color-gray-50: #f9fafb;
   --color-gray-100: #f3f4f6;
-  --color-gray-200: #e5e7eb;
   --color-gray-300: #d1d5db;
   --color-gray-600: #4b5563;
   --color-gray-700: #374151;
@@ -24,9 +23,6 @@ html,
 body {
   max-width: 100vw;
   overflow-x: hidden;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
@@ -41,12 +37,10 @@ a {
   text-decoration: none;
 }
 
-/* Main content spacing for fixed header */
 main {
   padding-top: 5rem;
 }
 
-/* Responsive utilities */
 .container {
   max-width: 1280px;
   margin: 0 auto;

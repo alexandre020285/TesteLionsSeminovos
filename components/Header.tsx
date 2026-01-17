@@ -39,7 +39,7 @@ export default function Header() {
             </div>
           </nav>
 
-          <button className={styles.menuBtn} onClick={() => setMenuAberto(!menuAberto)} aria-label="Menu">
+          <button className={`${styles.menuBtn} ${menuAberto ? styles.active : ''}`} onClick={() => setMenuAberto(!menuAberto)} aria-label="Menu">
             {menuAberto ? '✕' : '☰'}
           </button>
         </div>
