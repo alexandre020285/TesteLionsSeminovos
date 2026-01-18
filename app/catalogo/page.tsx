@@ -8,11 +8,14 @@ import styles from './page.module.css'
 export default function CatalogoPage() {
   const [filtro, setFiltro] = useState('all')
 
+  const marcasUnicas = Array.from(
+    new Set(vehicles.map(v => v.brand).filter(Boolean))
+  ) as string[]
+  const marcas = ['all', ...marcasUnicas]
+
   const veiculosFiltrados = filtro === 'all' 
     ? vehicles 
     : vehicles.filter(v => v.brand === filtro)
-
-  const marcas = ['all', ...Array.from(new Set(vehicles.map(v => v.brand).filter((b): b is string => Boolean(b))))]
 
   return (
     <div className={styles.page}>
@@ -32,12 +35,14 @@ export default function CatalogoPage() {
           ))}
         </div>
 
-        <div className={styles.grid}>
-          {veiculosFiltrados.map(v => <VehicleCard key={v.id} vehicle={v} />)}
-        </div>
-
-        {veiculosFiltrados.length === 0 && (
+        {veiculosFiltrados.length === 0 ? (
           <p className={styles.empty}>Nenhum veículo encontrado.</p>
+        ) : (
+          <div className={styles.grid}>
+            {veiculosFiltrados.map(veiculo => (
+              <VehicleCard key={veiculo.id} vehicle={veiculo} />
+            ))}
+          </div>
         )}
       </div>
     </div>

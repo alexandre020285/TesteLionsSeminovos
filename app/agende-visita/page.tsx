@@ -3,27 +3,59 @@
 import { useState } from 'react'
 import styles from './page.module.css'
 
+interface FormularioData {
+  nome: string
+  telefone: string
+  email: string
+  veiculo: string
+  data: string
+  horario: string
+  mensagem: string
+}
+
+const FORMULARIO_INICIAL: FormularioData = {
+  nome: '',
+  telefone: '',
+  email: '',
+  veiculo: '',
+  data: '',
+  horario: '',
+  mensagem: '',
+}
+
+const VEICULOS = [
+  'Honda Civic',
+  'Toyota Corolla',
+  'Volkswagen Jetta',
+  'Outro',
+]
+
+const HORARIOS = [
+  '08:00 - 10:00',
+  '10:00 - 12:00',
+  '14:00 - 16:00',
+  '16:00 - 18:00',
+]
+
+const WHATSAPP_URL = 'https://wa.me/5511999999999'
+const TEMPO_RESET = 5000
+
 export default function AgendeVisitaPage() {
-  const [formulario, setFormulario] = useState({
-    nome: '',
-    telefone: '',
-    email: '',
-    veiculo: '',
-    data: '',
-    horario: '',
-    mensagem: '',
-  })
+  const [formulario, setFormulario] = useState<FormularioData>(FORMULARIO_INICIAL)
   const [enviado, setEnviado] = useState(false)
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
-    setFormulario({ ...formulario, [e.target.name]: e.target.value })
+    setFormulario(prev => ({ ...prev, [e.target.name]: e.target.value }))
   }
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault()
     console.log('Formulário enviado:', formulario)
     setEnviado(true)
-    setTimeout(() => setEnviado(false), 5000)
+    setTimeout(() => {
+      setEnviado(false)
+      setFormulario(FORMULARIO_INICIAL)
+    }, TEMPO_RESET)
   }
 
   return (
@@ -61,10 +93,9 @@ export default function AgendeVisitaPage() {
                 <label>Veículo de Interesse</label>
                 <select name="veiculo" value={formulario.veiculo} onChange={handleChange}>
                   <option value="">Selecione um veículo</option>
-                  <option value="Honda Civic">Honda Civic</option>
-                  <option value="Toyota Corolla">Toyota Corolla</option>
-                  <option value="Volkswagen Jetta">Volkswagen Jetta</option>
-                  <option value="Outro">Outro</option>
+                  {VEICULOS.map(veiculo => (
+                    <option key={veiculo} value={veiculo}>{veiculo}</option>
+                  ))}
                 </select>
               </div>
 
@@ -77,10 +108,9 @@ export default function AgendeVisitaPage() {
                   <label>Horário Preferencial</label>
                   <select name="horario" value={formulario.horario} onChange={handleChange}>
                     <option value="">Selecione um horário</option>
-                    <option value="08:00 - 10:00">08:00 - 10:00</option>
-                    <option value="10:00 - 12:00">10:00 - 12:00</option>
-                    <option value="14:00 - 16:00">14:00 - 16:00</option>
-                    <option value="16:00 - 18:00">16:00 - 18:00</option>
+                    {HORARIOS.map(horario => (
+                      <option key={horario} value={horario}>{horario}</option>
+                    ))}
                   </select>
                 </div>
               </div>
@@ -97,7 +127,12 @@ export default function AgendeVisitaPage() {
 
         <div className={styles.contact}>
           <p>Ou entre em contato diretamente:</p>
-          <a href="https://wa.me/5511999999999" target="_blank" rel="noopener noreferrer" className={styles.whatsapp}>
+          <a 
+            href={WHATSAPP_URL} 
+            target="_blank" 
+            rel="noopener noreferrer" 
+            className={styles.whatsapp}
+          >
             📱 Falar no WhatsApp
           </a>
         </div>
