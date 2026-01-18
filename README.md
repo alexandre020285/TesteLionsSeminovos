@@ -97,9 +97,10 @@ npm run dev
         ├── banner/             # Imagens do carousel 
         ├── carros/             # Imagens dos veículos
         └── logo/               # Logo e favicon
+        └── readme/             # Imagens do readme
 ```
 
-## 🎨 Características de Design
+## 🎨 Características do Design
 
 - **Header Fixo**: 
   - Posição fixa no topo da página
@@ -124,10 +125,22 @@ npm run dev
 ## 📱 Responsividade
 
 O site é totalmente responsivo e se adapta a:
+
 - **Mobile**: 320px+ 
+  
+  ![Mobile](./public/images/Readme/320.png)
+
 - **Tablet**: 768px+ 
+  
+  ![Tablet](./public/images/Readme/768.png)
+
 - **Desktop**: 1024px+ 
-- **Large Desktop**: 1280px+ 
+  
+  ![Desktop](./public/images/Readme/1024.png)
+
+- **Large Desktop**: 1280px+
+  
+  ![Large Desktop](./public/images/Readme/1280+.png) 
 
 ## 🔗 Links Externos
 
