@@ -12,7 +12,6 @@ export const metadata: Metadata = {
   description: 'Encontre o carro seminovo perfeito para você',
   icons: {
     icon: '/images/logo/lions Favicon.png',
-    shortcut: '/images/logo/lions Favicon.png',
     apple: '/images/logo/lions Favicon.png',
   },
 }

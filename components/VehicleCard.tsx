@@ -3,20 +3,35 @@ import Link from 'next/link'
 import { Vehicle } from '@/data/vehicles'
 import styles from './VehicleCard.module.css'
 
-export default function VehicleCard({ vehicle }: { vehicle: Vehicle }) {
+interface VehicleCardProps {
+  vehicle: Vehicle
+}
+
+export default function VehicleCard({ vehicle }: VehicleCardProps) {
+  const { id, name, image, price, year, km } = vehicle
+
   return (
     <div className={styles.card}>
       <div className={styles.img}>
-        <Image src={vehicle.image} alt={vehicle.name} fill className={styles.image} sizes="(max-width: 768px) 100vw, 33vw" />
+        <Image 
+          src={image} 
+          alt={name} 
+          fill 
+          className={styles.image} 
+          sizes="(max-width: 768px) 100vw, 33vw" 
+        />
       </div>
+      
       <div className={styles.content}>
-        <h3 className={styles.title}>{vehicle.name}</h3>
-        <div className={styles.price}>{vehicle.price}</div>
+        <h3 className={styles.title}>{name}</h3>
+        <div className={styles.price}>{price}</div>
+        
         <div className={styles.details}>
-          <span>📅 {vehicle.year}</span>
-          <span>🛣️ {vehicle.km}</span>
+          <span>📅 {year}</span>
+          <span>🛣️ {km}</span>
         </div>
-        <Link href={`/veiculo/${vehicle.id}`} className={styles.btn}>
+        
+        <Link href={`/veiculo/${id}`} className={styles.btn}>
           Ver Detalhes
         </Link>
       </div>

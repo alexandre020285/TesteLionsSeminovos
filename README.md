@@ -1,6 +1,16 @@
-# Lions Seminovos - Site
+# Lions Seminovos - Teste
 
-Aplicação front-end desenvolvida com Next.js e React para exibição de veículos seminovos.
+
+Teste prático de uma aplicação front-end inspirada no site da Lions Seminovos, desenvolvida com Next.js e React.
+
+## 🧩 Como foi resolver esse teste
+A maioria das funcionalidades deste site eu já havia desenvolvido em outros projetos e testes anteriores. Foi basicamente juntar essas partes como um quebra-cabeça e aplicá-las neste projeto. Ainda assim, em alguns momentos precisei voltar ao básico, errar, pesquisar bastante, quebrar a cabeça e refazer até chegar a uma solução.
+
+Em determinadas partes, o processo foi literalmente um quebra-cabeça: passei horas tentando fazer funcionar (acredito que tenha dado certo 😅), aprendendo no processo. Não sei dizer se utilizei a forma mais correta ou a mais simples, mas foi a que consegui desenvolver com o conhecimento que adquiri.
+
+Confesso que a parte dos veículos foi a mais desafiadora. A manipulação e filtragem dos dados se mostraram difíceis e cansativas (coitado do meu PC, nunca foi tão xingado como agora nesse projeto 💻🤬). Eu já havia feito algo parecido em projetos anteriores, porém nunca de forma tão criteriosa. Mesmo quando não dava certo, me forcei a continuar tentando. Recorri a tutoriais, conteúdos do Instagram e do YouTube, documentações oficiais e até à ajuda de amigos para conseguir avançar.
+
+No final, foi um processo intenso e dificil, mas me mostrou onde tenho que melhorar e evoluir.
 
 ## 🚀 Funcionalidades
 
@@ -10,18 +20,17 @@ Aplicação front-end desenvolvida com Next.js e React para exibição de veícu
   - Indicadores de slide (dots)
   - Efeito glassmorphism no card de texto
   - Veículos em destaque
-  - Call-to-action
+  
 
 - **Catálogo**: 
   - Listagem completa de veículos
   - Filtros por marca
-  - Cards responsivos com imagens otimizadas
+  - Cards responsivos com imagens
 
-- **Detalhes do Veículo**: 
-  - Página dinâmica para cada veículo (`/veiculo/[id]`)
+- **Detalhes do Veículo**: (essa parte foi a mais difícil🤬💻😒)
+  - Página para cada veículo (`/veiculo/[id]`)
   - Informações completas (ano, quilometragem, marca, preço)
   - Botões para agendar visita e WhatsApp
-  - Navegação de volta
 
 - **Agende uma Visita**: 
   - Formulário de contato para agendamento
@@ -32,7 +41,7 @@ Aplicação front-end desenvolvida com Next.js e React para exibição de veícu
   - Gradiente transparente na parte inferior (70% escuro, 30% transparente)
   - Logo circular
   - Menu responsivo com animação
-  - Ícones de redes sociais (Instagram e Facebook) com cores correspondentes
+  - Ícones de redes sociais (Instagram e Facebook)
 
 - **Botão WhatsApp Flutuante**: 
   - Botão fixo no canto inferior direito
@@ -42,15 +51,13 @@ Aplicação front-end desenvolvida com Next.js e React para exibição de veícu
 - **Layout Responsivo**: 
   - Funciona perfeitamente em mobile, tablet e desktop
   - Menu hambúrguer para mobile
-  - Imagens otimizadas com Next.js Image
 
 ## 🛠️ Tecnologias
 
-- **Next.js 14** - Framework React com SSR e otimizações
-- **React 18** - Biblioteca JavaScript para interfaces
-- **TypeScript** - Tipagem estática
-- **CSS Modules** - Estilos com escopo local
-- **React Icons** - Biblioteca de ícones (Instagram, Facebook, WhatsApp, setas)
+- **Next.js 14** 
+- **React 18** 
+- **TypeScript**  
+- **React Icons** 
 
 ## 📦 Instalação
 
@@ -74,46 +81,22 @@ npm run dev
 │   ├── page.tsx                # Página inicial
 │   ├── page.module.css         # Estilos da página inicial
 │   ├── globals.css             # Estilos globais e variáveis CSS
-│   ├── catalogo/               # Página do catálogo
-│   │   ├── page.tsx
-│   │   └── page.module.css
 │   ├── agende-visita/          # Página de agendamento
-│   │   ├── page.tsx
-│   │   └── page.module.css
+│   ├── catalogo/               # Página do catálogo
 │   └── veiculo/                # Página de detalhes do veículo
-│       └── [id]/
-│           ├── page.tsx
-│           └── page.module.css
 ├── components/
-│   ├── Header.tsx              # Cabeçalho com navegação fixa
-│   ├── Header.module.css
 │   ├── Footer.tsx              # Rodapé
-│   ├── Footer.module.css
+│   ├── Header.tsx              # Cabeçalho com navegação fixa
 │   ├── Hero.tsx                # Seção hero com carousel
-│   ├── Hero.module.css
 │   ├── VehicleCard.tsx         # Card de veículo
-│   ├── VehicleCard.module.css
-│   ├── WhatsAppFloat.tsx       # Botão flutuante do WhatsApp
-│   └── WhatsAppFloat.module.css
+│   └── WhatsAppFloat.tsx       # Botão flutuante do WhatsApp
 ├── data/
 │   └── vehicles.ts             # Dados centralizados dos veículos
 └── public/
     └── images/
-        ├── banner/             # Imagens do carousel
-        │   ├── banner.webp
-        │   ├── hero2.jpg
-        │   ├── hero 3.webp
-        │   └── hero 4.webp
+        ├── banner/             # Imagens do carousel 
         ├── carros/             # Imagens dos veículos
-        │   ├── Honda Civic 2020.webp
-        │   ├── Toyota Corolla 2021.jpg
-        │   ├── Volkswagen Jetta 2019.jpg
-        │   ├── Ford Focus 2020.jpg
-        │   ├── Chevrolet Onix 2021.webp
-        │   └── Fiat Argo 2022.jpg
         └── logo/               # Logo e favicon
-            ├── lions logo.jpg
-            └── lions Favicon.png
 ```
 
 ## 🎨 Características de Design
@@ -137,60 +120,14 @@ npm run dev
   - Link para página de detalhes individual
   - Layout responsivo em grid
 
-- **Ícones de Redes Sociais**: 
-  - Instagram: cor #E4405F
-  - Facebook: cor #1877F2
-  - Efeito hover com escala
-
-## 🎯 Funcionalidades Técnicas
-
-- **Otimização de Imagens**: 
-  - Uso do componente `next/image` para otimização automática
-  - Lazy loading (exceto primeira imagem do carousel)
-  - Suporte a diferentes formatos (webp, jpg)
-
-- **Gerenciamento de Estado**: 
-  - `useState` para controle do carousel e menu mobile
-  - `useEffect` para timer do carousel automático
-
-- **Roteamento**: 
-  - Rotas dinâmicas para detalhes de veículos (`/veiculo/[id]`)
-  - Navegação com `next/link` e `useRouter`
-
-- **Dados Centralizados**: 
-  - Arquivo `data/vehicles.ts` com interface TypeScript
-  - Exportação de array de veículos e veículos em destaque
-
-## 🎨 Personalização
-
-- **Cores**: Edite as variáveis CSS em `app/globals.css`:
-  ```css
-  --color-primary: #1a1a1a;
-  --color-secondary: #d4af37;
-  --color-accent: #c9a961;
-  ```
-
-- **Imagens**: 
-  - Adicione imagens de veículos em `public/images/carros/`
-  - Adicione banners em `public/images/banner/`
-  - Atualize os dados em `data/vehicles.ts`
-
-- **Logo**: Substitua `public/images/logo/lions logo.jpg`
-
-- **WhatsApp**: Atualize o número em `components/WhatsAppFloat.tsx`:
-  ```typescript
-  href="https://wa.me/5521000000000"
-  ```
-
-- **Redes Sociais**: Atualize os links em `components/Header.tsx` e `components/Footer.tsx`
 
 ## 📱 Responsividade
 
 O site é totalmente responsivo e se adapta a:
-- **Mobile**: 320px+ (menu hambúrguer, layout vertical)
-- **Tablet**: 768px+ (menu horizontal, grid 2 colunas)
-- **Desktop**: 1024px+ (menu completo, grid 3 colunas)
-- **Large Desktop**: 1280px+ (container máximo de 1280px)
+- **Mobile**: 320px+ 
+- **Tablet**: 768px+ 
+- **Desktop**: 1024px+ 
+- **Large Desktop**: 1280px+ 
 
 ## 🔗 Links Externos
 
@@ -198,23 +135,7 @@ O site é totalmente responsivo e se adapta a:
 - **Facebook**: `https://www.facebook.com/lionsseminovos`
 - **WhatsApp**: Botão flutuante em todas as páginas
 
-## 📝 Notas
 
-- Todas as imagens são servidas localmente da pasta `public/images/`
-- O projeto não utiliza configuração de `images.remotePatterns` no `next.config.js`
-- O header tem altura de 5rem (80px) e o conteúdo principal tem `padding-top: 5rem` para compensar
-- O hero na página inicial tem `margin-top: -5rem` para sobrepor o header
 
-## 🚀 Build para Produção
 
-```bash
-npm run build
-npm start
-```
 
-## 📄 Scripts Disponíveis
-
-- `npm run dev` - Inicia servidor de desenvolvimento
-- `npm run build` - Cria build de produção
-- `npm start` - Inicia servidor de produção
-- `npm run lint` - Executa o linter do Next.js
